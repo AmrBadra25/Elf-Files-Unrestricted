@@ -1,0 +1,29 @@
+# mnemonics to simplify microcode writing
+mnemonics:
+    in_r:            0
+    in_i:            1
+    a10_r:           2
+    a10_i:           3
+    a30_r:           4
+    a30_i:           5
+    a50_r:           6
+    a50_i:           7
+    out_r:           8
+    out_i:           9
+    nb_iter:         10
+    iter_stride:     11
+    one_stride:      12
+
+# actual microcode
+code:
+  loop0:
+    - { op : add, a : in_r, b : one_stride,  } # move to next subset of in_r
+    - { op : add, a : in_i, b : one_stride,  } # move to next subset of in_i
+    - { op : add, a : a10_r, b : one_stride,  } # move to next subset of a10_r
+    - { op : add, a : a10_i, b : one_stride,  } # move to next subset of a10_i
+    - { op : add, a : a30_r, b : one_stride,  } # move to next subset of a30_r
+    - { op : add, a : a30_i, b : one_stride,  } # move to next subset of a30_i
+    - { op : add, a : a50_r, b : one_stride,  } # move to next subset of a50_r
+    - { op : add, a : a50_i, b : one_stride,  } # move to next subset of a50_i
+    - { op : add, a : out_r, b : one_stride,  } # move to next subset of out_r
+    - { op : add, a : out_i, b : one_stride,  } # move to next subset of out_i

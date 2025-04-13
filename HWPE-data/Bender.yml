@@ -1,0 +1,26 @@
+package:
+  name: hwpe-mac-engine
+  authors:
+    - "Abdelrahman Aly"
+
+dependencies:
+  hwpe-stream: { git: "https://github.com/pulp-platform/hwpe-stream.git", version: 1.6.3 }
+  hwpe-ctrl:   { git: "https://github.com/pulp-platform/hwpe-ctrl.git", version: 1.6.1 }
+
+
+sources:
+  - include_dirs:
+      - rtl
+    files:
+      # Level 0
+      - rtl/actuator_package.sv
+      # Level 1
+      - rtl/actuator_engine.sv
+      - rtl/actuator_fsm.sv
+      - rtl/actuator_streamer.sv
+      # Level 2
+      - rtl/actuator_ctrl.sv
+      # Level 3
+      - rtl/actuator_top.sv
+      # Level 4
+      - wrap/actuator_top_wrap.sv
